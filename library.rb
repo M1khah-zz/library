@@ -15,11 +15,12 @@ class Library
 
 
   def top_reader
-    @orders.group_by {|order| order.reader}.max_by {|_,orders| orders.count}
+    reader = @orders.group_by {|order| order.reader}.max_by {|orders| orders[1].count}[0]
+    reader.name
   end
 
   def most_popular_book
-    @orders.group_by {|order| order.book.title}.max_by {|_,orders| orders.count}
+    book = @orders.group_by {|order| order.book.title}.max_by {|orders| orders[1].count}[0]
   end
 
   def one_of_popular_books
