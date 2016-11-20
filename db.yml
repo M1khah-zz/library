@@ -1,0 +1,102 @@
+--- !ruby/object:Library
+books:
+- &3 !ruby/object:Book
+  title: Chapaev and emptiness
+  author: &8 !ruby/object:Author
+    name: Victor Pelevin
+    biography: Victor Pelevin biography
+- &6 !ruby/object:Book
+  title: A farewell to arms
+  author: &9 !ruby/object:Author
+    name: Hemingway
+    biography: Hemingway biography
+- &1 !ruby/object:Book
+  title: Book of five rings
+  author: &10 !ruby/object:Author
+    name: M.Mushashi
+    biography: M.Mushashi biography
+- &7 !ruby/object:Book
+  title: Style icons
+  author: &11 !ruby/object:Author
+    name: Some hipster
+    biography: Some hipster biography
+orders:
+- &12 !ruby/object:Order
+  book: *1
+  reader: &2 !ruby/object:Reader
+    name: Kir
+    email: kir@gmail.com
+    city: Dnepr
+    street: Gagarina
+    house: 5
+  date: 02.10.15
+- &13 !ruby/object:Order
+  book: *1
+  reader: &4 !ruby/object:Reader
+    name: Eugen
+    email: eugen@gmail.com
+    city: Dnepr
+    street: Heroev ave
+    house: 3
+  date: 04.10.16
+- &14 !ruby/object:Order
+  book: *1
+  reader: &5 !ruby/object:Reader
+    name: Benedict
+    email: benedict@gmail.com
+    city: Dnipro
+    street: Javornitskogo
+    house: 1
+  date: 13.09.16
+- &15 !ruby/object:Order
+  book: *1
+  reader: *2
+  date: 13.10.16
+- &16 !ruby/object:Order
+  book: *3
+  reader: *2
+  date: 02.10.16
+- &17 !ruby/object:Order
+  book: *3
+  reader: *4
+  date: 25.09.16
+- &18 !ruby/object:Order
+  book: *3
+  reader: *5
+  date: 10.10.16
+- &19 !ruby/object:Order
+  book: *6
+  reader: *2
+  date: 11.10.16
+- &20 !ruby/object:Order
+  book: *6
+  reader: *4
+  date: 21.09.16
+- &21 !ruby/object:Order
+  book: *7
+  reader: *2
+  date: 01.08.16
+readers:
+- *2
+- *4
+- *5
+authors:
+- *8
+- *9
+- *10
+- *11
+orders_by_book_desc:
+- - Book of five rings
+  - - *12
+    - *13
+    - *14
+    - *15
+- - Chapaev and emptiness
+  - - *16
+    - *17
+    - *18
+- - A farewell to arms
+  - - *19
+    - *20
+- - Style icons
+  - - *21
