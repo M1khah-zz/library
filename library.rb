@@ -15,7 +15,7 @@ class Library
 
 
   def top_reader
-    reader = @orders.group_by {|order| order.reader}.max_by {|orders| orders[1].count}[0]
+    reader = @orders.group_by(&:reader).max_by {|orders| orders[1].count}[0]
     reader.name
   end
 
@@ -23,9 +23,10 @@ class Library
     book = @orders.group_by {|order| order.book.title}.max_by {|orders| orders[1].count}[0]
   end
 
-  def one_of_popular_books
-    orders = @orders.group_by { |order| order.book}
-    orders.sort_by { |order| order.size }.map { |x| x[1]}.flatten.map { |order| order.reader}.uniq.size
+  def one_of_3_popular_books
+    orders = @orders.group_by { |order| order.book.title}
+    orders.sort_by { |title, orders| orders.size }.last(3)
+    orders.map { |x| x[1]}.flatten.map(&:reader).uniq.size
   end
 
 
